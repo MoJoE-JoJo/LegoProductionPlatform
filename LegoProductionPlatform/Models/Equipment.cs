@@ -6,3 +6,5 @@
         public State State { get; init; }
         public List<Equipment> Successors { get; init; } = new List<Equipment>(); // Could be a navigation property if using EF Core
     }
+
+
