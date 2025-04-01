@@ -1,10 +1,13 @@
 // import Image from "next/image";
 
-export default async function Home() {
-  const data = await fetch('http://localhost:5250/hejsa')
-  // const posts = await data.json()
+import { Column, Row } from "@/Components/Containers";
+import { WeatherForecast } from "@/utils/types";
 
-  console.log(await data.json())
+export default async function Home() {
+  const data = await fetch('http://localhost:5250/api/hejsa/get-forecast')
+  // const posts = await data.json()
+  const forecasts: WeatherForecast[] = await data.json()
+  // console.log(await data.json())
     // .then((data) => {
     //   console.log(data);
     //   return data;
@@ -13,13 +16,18 @@ export default async function Home() {
 
 
   return (
-    <div>
-      yolo
-      </div>
-    // <ul>
-    //   {posts.map((post) => (
-    //     <li key={post.id}>{post.title}</li>
-    //   ))}
-    // </ul>
+    <>
+    <Column> 
+    <span>hejsa</span>
+      {forecasts.map((forecast, index) => (
+        <Row key={index}>
+          <span>{forecast.date}</span>
+          <span>{forecast.temperatureC}</span>
+          <span>{forecast.summary}</span>
+          <span>{forecast.temperatureF}</span>
+           </Row>
+      ))}
+      </Column>
+      </>
   )
 }
