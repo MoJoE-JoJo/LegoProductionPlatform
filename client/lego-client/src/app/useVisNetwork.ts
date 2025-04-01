@@ -17,7 +17,6 @@ export interface UseVisNetworkOptions {
   edges: Edge[];
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export const useVisNetwork = (props: UseVisNetworkOptions) => {
   const { edges, nodes, options } = props;
 

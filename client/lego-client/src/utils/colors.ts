@@ -15,6 +15,6 @@ export function getColor(state: State): string {
         case "Stopped":
             return stoppedColor;
         default:
-            return "#000000"; // Default color for unknown state
+            return "#000000";
     }
 }
